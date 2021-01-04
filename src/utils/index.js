@@ -1,9 +1,7 @@
 // index file of utils folder for easy importing
 
 import Storage from './Storage';
-import Utils from './Utils';
 import Validator from './Validator';
-import Flash from './Flash';
-import ImageChooser from './ImageChooser';
+// import Flash from './Flash';
 
-export {Storage, Utils, Validator, Flash, ImageChooser};
+export {Storage, Validator};

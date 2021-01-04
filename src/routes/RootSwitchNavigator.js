@@ -6,6 +6,17 @@ import TabsNavigator from './TabsNavigator';
 import {AuthContext} from '../context/AuthContext';
 
 const Stack = createStackNavigator();
+export const navigationRef = React.createRef();
+export const isReadyRef = React.createRef();
+export function navigate(name, params) {
+  if (isReadyRef.current && navigationRef.current) {
+    navigationRef.current.navigate(name, params);
+  } else {
+    console.log('Not mounted');
+    // You can decide what to do if the app hasn't mounted
+    // You can ignore this, or add these actions to a queue you can call later
+  }
+}
 
 const RootSwitchNavigator = () => {
   const {isUserLoggedin, authStateLoading} = useContext(AuthContext);

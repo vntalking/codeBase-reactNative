@@ -10,20 +10,27 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import RootSwitchNavigator from './routes/RootSwitchNavigator.js';
+import RootSwitchNavigator, {
+  navigationRef,
+  isReadyRef,
+} from './routes/RootSwitchNavigator.js';
 import {AuthContextProvider} from './context/AuthContext';
 import {AppContextProvider} from './context/AppContext';
-import FlashMessage from 'react-native-flash-message';
+// import FlashMessage from 'react-native-flash-message';
 
 const App = () => {
   return (
     <AuthContextProvider>
       <AppContextProvider>
         <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        <NavigationContainer>
+        <NavigationContainer
+          ref={navigationRef}
+          onReady={() => {
+            isReadyRef.current = true;
+          }}>
           <RootSwitchNavigator />
         </NavigationContainer>
-        <FlashMessage position="top" />
+        {/* <FlashMessage position="top" /> */}
       </AppContextProvider>
     </AuthContextProvider>
   );

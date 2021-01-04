@@ -5,7 +5,7 @@ import {Colors, Fonts, Layout} from '../styles';
 const SplashScreen = (props) => {
   return (
     <View style={styles.container}>
-      <Text>App</Text>
+      <Text>Splash</Text>
     </View>
   );
 };
